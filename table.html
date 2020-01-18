@@ -31,21 +31,6 @@
           </tr>
         </thead>
         <tbody id="tableBody">
-          <!-- <tr>
-            <td id="resName">1. Mark</td>
-          </tr> -->
-          <!-- <tr>
-            <td>2. Jacob</td>
-          </tr>
-          <tr>
-            <td>3. Larry</td>
-          </tr>
-          <tr>
-            <td>4. Larry</td>
-          </tr>
-          <tr>
-            <td>5. Larry</td>
-          </tr> -->
         </tbody>
       </table>
       
@@ -59,29 +44,30 @@
         </tbody>
       </table>
     </div>  
-    <script>
-        
-        $.get("/api/reserve").then(function(data){
-            // for (let i = 0; i < data.length; i++){
-                const newRow = $("<tr>")
-                const newData = $("<td>")
-                newRow.append(newData)
-                newData.text(data[0].name)
-            // }
+    <script> 
+      $.get("/api/reserve").then(function(data){
+          for (let i = 0; i < data.length; i++){
+            const newRow = $("<tr>");
+            const newData = $("<td>");
             
-            $("#tableBody").append(newRow)
+            newData.text(data[i].name);
+            newRow.append(newData);
 
-        });
+            $("#tableBody").append(newRow);
+          }
+      });
 
-        $.get("/api/waitlist").then(function(data){
-            const newRow = $("<tr>")
-            const newData = $("<td>")
-            newRow.append(newData)
-            newData.text(data[0].name)
-            $("#waitTable").append(newRow)
+      $.get("/api/waitlist").then(function(data){
+        for (let i = 0; i < data.length; i++){
+          const newRow = $("<tr>");
+          const newData = $("<td>");
+            
+          newData.text(data[i].name);
+          newRow.append(newData);
 
-        })
-    
+          $("#waitTable").append(newRow);
+        }
+      });  
     </script>
 </body>
 </html>
