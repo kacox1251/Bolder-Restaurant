@@ -1,17 +1,17 @@
 // Question: What does this code do?
-$("#add-btn").on("click", function(event) {
+$("#submit").on("click", function(event) {
   event.preventDefault();
   var newReservation = {
-    name: $("#customerName")
+    name: $("#name")
       .val()
       .trim(),
-    phone: $("#ohoneNumber")
+    phone: $("#number")
       .val()
       .trim(),
-    email: $("#customerEmail")
+    email: $("#email")
       .val()
       .trim(),
-    ID: $("#customerID")
+    ID: $("#id")
       .val()
       .trim()
   };
