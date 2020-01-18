@@ -58,6 +58,7 @@
             .val()
             .trim()
         };
+        $(".form-control").val("");
 
         $.post("/api/reserve", newReservation).then(function(data) {
           // console.log("reservations.html", data);
