@@ -60,8 +60,12 @@
         };
 
         $.post("/api/reserve", newReservation).then(function(data) {
-          console.log("reservations.html", data);
-          alert("Adding reservation...");
+          // console.log("reservations.html", data);
+          if (data) {
+            alert("Your reservation has been added.");
+          } else {
+            alert("You are being added to the waitlist.")
+          }
         });
       });
     </script>
