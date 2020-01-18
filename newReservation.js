@@ -19,6 +19,6 @@ $("#submit").on("click", function(event) {
   // Question: What does this code do??
   $.post("/api/reserve", newReservation).then(function(data) {
     console.log("reservations.html", data);
-    alert("Adding character...");
+    alert("Adding reservation...");
   });
 });
