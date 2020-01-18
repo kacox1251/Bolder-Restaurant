@@ -1,20 +1,20 @@
 // Dependencies
 // =============================================================
-var express = require("express");
-var path = require("path");
+const express = require("express");
+const path = require("path");
 
 // Sets up the Express App
 // =============================================================
-var app = express();
-var PORT = 3000;
+const app = express();
+const PORT = process.env.PORT || 3000;
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 // Reservations (DATA)
 // =============================================================
-var tables = [];
-var waitlist = [];
+const tables = [];
+const waitlist = [];
 
 // Routes
 // =============================================================
@@ -40,7 +40,7 @@ app.get("/api/waitlist", function(req, res) {
 
 app.post("/api/reserve", function(req, res) {
 
-  var newReservation = req.body;
+  const newReservation = req.body;
 
   console.log(newReservation);
   if (tables.length <= 4) {
