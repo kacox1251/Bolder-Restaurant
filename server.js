@@ -45,20 +45,14 @@ app.post("/api/reserve", function(req, res) {
   console.log(newReservation);
   if (tables.length <= 4) {
     tables.push(newReservation);
+    res.json(true);
   } else {
     waitlist.push(newReservation);
+    res.json(false)
   }
-
-  res.json(newReservation);
 });
 
 
 app.listen(PORT, function() {
   console.log("App listening on PORT " + PORT);
 });
-
-
-//clear form aftersubmit button is hit
-//1 alert that says "resrevation successfull"
-//1 alert "added to wait list"
-//populate json info onto html
